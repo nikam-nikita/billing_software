@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Billing Software</title>
+
+    <!-- jquery cdn -->
+    <script src="/cdn/jquery-3.7.0.js"></script>
+    <script src="/cdn/jquery-3.7.0.min.js"></script>
+    <script src="/cdn/jquery-3.7.0.slim.js"></script>
+    <script src="/cdn/jquery-3.7.0.slim.min.js"></script>
+
+    <!-- Ajax online cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Bootstrap cdn   -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
+    <!-- icon Links  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <style type="text/css">
+        .sale {
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            font-family: serif;
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bolder;
+            padding: 5px;
+        }
+
+        .inp1 {
+            margin-left: 33px;
+            float: left;
+        }
+
+        .inp2 {
+            float: left;
+        }
+
+        .inp3 {
+            float: left;
+        }
+
+        .inp4 {
+            float: left;
+        }
+
+        .inp5 {
+            float: left;
+        }
+
+        .inp6 {
+            float: left;
+            margin-top: 10px;
+            text-align: center;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        input {
+            width: 180px;
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+
+        th {
+            text-align: center;
+            width: 100px;
+
+        }
+
+        .th1 {
+            width: 60px;
+        }
+
+        .th1 input {
+            margin-top: 20px;
+        }
+
+        .bar input {
+            width: 110px;
+            margin-top: 10px;
+        }
+
+        .last1 {
+            width: 95%;
+            float: left;
+            border: 2px solid black;
+            height: 200px;
+            margin-left: 30px;
+            padding: 20px;
+            font-weight: bolder;
+        }
+
+        .last1 input {
+            width: 140px;
+            margin-right: 20px;
+            margin-left: 0px;
+
+        }
+
+        .last1 select {
+            width: 160px;
+
+        }
+
+        #net {
+            margin-left: 550px;
+        }
+
+        .inp1 input {
+            width: 180px;
+            position: relative;
+            top: -8px;
+            height: 40px;
+        }
+
+        .inp2 input {
+            width: 180px;
+            position: relative;
+            top: -8px;
+            height: 40px;
+        }
+
+        .inp3 input {
+            width: 180px;
+            position: relative;
+            top: -8px;
+            height: 40px;
+        }
+
+        .inp4 input {
+            width: 180px;
+            position: relative;
+            top: -8px;
+            height: 40px;
+        }
+
+        .inp5 input {
+            width: 180px;
+            position: relative;
+            top: -8px;
+            height: 40px;
+        }
+
+        .inp6 input {
+            width: 180px;
+            position: relative;
+            top: -8px;
+            height: 40px;
+        }
+
+        input {
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            color: black;
+            
+        }
+
+        label {
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        select {
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .form-control {
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="sale bg-secondary text-white text-center font-weight-bold">
+        <h1 style="font-size: 40px;">Sale Product</h1>
+    </div>
+    <div class="inp1">
+        <label>Customer<br>
+            Name:</label><input autocomplete="off" type="text" name="" id="cname1">
+    </div>
+    <div class="inp6">
+        <button type="button" class="add mt-2" data-toggle="modal" data-target="#exampleModal"
+            style="height: 40px; width: 40px;position: relative; top: -10px; border: none; color: black;"><i
+                class="fa fa-plus" style="font-size:20px"></i></button>
+    </div>
+    <div class="inp2 ml-2">
+        <label style="position: relative;top: -20px;"><br>Mobile:</label><input autocomplete="off" type="number" name="" id="cmobile1">
+    </div>
+    <div class="inp3 ml-3">
+        <label>Prev<br>
+            Dues:</label><input autocomplete="off" type="number" name="" id="cdeu1">
+    </div>
+    <div class="inp4 ml-3">
+        <label>Invoice<br>
+            No:</label><input autocomplete="off" type="number" name="">
+    </div>
+    <div class="inp5 ml-3">
+        <label>Invoice<br>
+            Date:</label><input autocomplete="off" type="date" name="" id="cdate1">
+    </div>
+    <table border="1" style="margin-left:30px;width:95%;background-color:skyblue;color: black;font-size: 18px;" id="mytable">
+        <thead id="thead">
+            <tr>
+                <th class="th1" style="text-align: center;"><input autocomplete="off" type="checkbox" style="height: 20px; width: 20px;">
+                <th class="">Product Name</th>
+                <th class="">Prod Size</th>
+                <th class="">Available Qty</th>
+                <th class="">Selling price</th>
+                <th class="">Qty</th>
+                <th class="">GST</th>
+                <th class="">Disc</th>
+                <th class="">Total Amount</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbody">
+            <tr class="bar">
+                <td><button class="btn btn-danger text-center"
+                        style="margin-left:20px;font-size:20px;font-weight:bolder;"><i
+                            class="fa fa-trash-o"></i></button></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3"></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3"></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3 inp" id="aqnt" onkeyup="fun1()"></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3" id="sprice" onkeyup="fun1()"></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3" id="qnt" onkeyup="fun1()"></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3" id="gst" onkeyup="fun1()"></td>
+                <td><input autocomplete="off" type="text" class="mt-3 mb-3" id="dis" onkeyup="fun1()"></td>
+                <td><input autocomplete="off" type="text" readonly id="tot" class="tot11 mt-3 mb-3"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <td class="p-2 text-center"><button class="bg-success btn mt-4 text-white"
+            style="height: 40px;width: 50px; border: none; border-radius: 3px;margin-left: 30px;">
+            <h2 style="margin-top: -7px;" onclick="append1()">+</h2>
+        </button></td>
+    <br><br>
+    <div class="last1">
+
+        <label>Total<br> Amount:</label>
+        <input autocomplete="off" type="number" id="total" readonly
+            style="width: 16%;position: relative;top: -10px;left: 6px; height: 40px;">
+        <label style="position: relative;top: -10px;">Disc(Rs):</label>
+        <input autocomplete="off" type="number" id="Discount" style="width: 16%;position: relative;top: -10px;left: 6px; height: 40px;">
+        <label style="position: relative;top: -10px;">Disc(%):</label>
+        <input autocomplete="off" type="number" id="discountpre"
+            style="width: 16%;position: relative;top: -10px;left: 10px; height: 40px;">
+        <label>Net<br>Payment:</label>
+        <input autocomplete="off" type="number" id="netpay" style="width: 16%;position: relative;top: -10px;left: 6px; height: 40px;"><br>
+
+        <label style="position: relative;top: 12px;">Payment<br>Mode:</label>
+        <select style="width: 16%; height: 40px; position: relative;top: -1px;left: 6px;">
+            <option>Cash</option>
+            <option>UPI</option>
+            <option>Card</option>
+
+        </select>
+        <label style="position: relative;top: -1px; left: 20px;">Paid (Rs):</label>
+        <input autocomplete="off" type="number" id="paid" style="width: 16%;position: relative;top: -1px;left: 20px; height: 40px;">
+        <label style="position: relative;top: -1px;left: 6px;">Dues:</label>
+        <input autocomplete="off" type="number" id="dues" style="width: 16%;position: relative;top: -1px;left: 39px; height: 40px;">
+    </div>
+
+    <button class="btn btn-primary mt-5 btn-lg" style="text-align:center;margin-top:20px;margin-left:50%;"
+        onclick="print()">Save</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLable" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title bg-danger" id="exampleModalLable"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-lable="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <div class="modal-body">
+
+                        <form id="form">
+                            <h3 class="bg-danger p-2 text-white w-100">Add New Customer</h3>
+                            <label class="ml-2 font-weight-bold">Customer type:</label>
+                            <input autocomplete="off" type="text" id="ctype" class="form-control">
+                            <label class="ml-2 font-weight-bold">Date</label>
+                            <input autocomplete="off" type="date" id="cdate" class="form-control">
+                            <label class="ml-2 font-weight-bold">Customer name:</label>
+                            <input autocomplete="off" type="text" id="cname" class="form-control">
+                            <label class="ml-2 font-weight-bold">Mobile no</label>
+                            <input autocomplete="off" type="text" id="cmobile" class="form-control">
+                            <label class="ml-2 font-weight-bold">Prev Dues:</label>
+                            <input autocomplete="off" type="text" id="pdeu" class="form-control">
+                            <button class="btn btn-dark float-right">Cancel</button>
+                            <button class="btn btn-primary  float-right mr-3" id="modalsave" type="button">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#modalsave').click(function () {
+                var ctype = $('#ctype').val();
+                var cdate = $('#cdate').val();
+                var cname = $('#cname').val();
+                var cmobile = $('#cmobile').val();
+                var pdeu = $('#pdeu').val();
+
+                $('#cname1').val(cname);
+                $('#cdate1').val(cdate);
+                $('#cmobile1').val(cmobile);
+                $('#cdeu1').val(pdeu);
+
+                $('#exampleModal').modal('hide');
+            })
+
+
+
+            $('#qnt,#aqnt').keyup(function () {
+                var aqnt2 = $('#aqnt').val();
+                var qnt2 = $('#qnt').val();
+                if (Number(aqnt2) < Number(qnt2)) {
+                    alert("stock Not Avilable");
+                    $('#qnt').val(1);
+                }
+            })
+            $('#qnt,#sprice,#gst,#dis').keyup(function () {
+                var sprice1 = $('#sprice').val();
+                var qnt1 = $('#qnt').val();
+                var tot1 = sprice1 * qnt1;
+                var gst1 = $('#gst').val();
+                var dis1 = $('#dis').val();
+                var distot = Number(tot1) * Number(dis1) / 100;
+                var disamt = Number(tot1) - Number(distot);
+                var gstot = Number(disamt) * Number(gst1) / 100;
+                var ttamt = Number(disamt) + Number(gstot);
+                $('#tot').val(ttamt);
+
+            })
+
+            $('#qnt', '#aqnt').keyup(function () {
+                var aqnt = $('#aqnt').val();
+                var qnt = $('#qnt').val();
+                if (Number(aqnt) < Number(qnt)) {
+                    alert("stock Not Avilable");
+                    $('#qnt').val(1);
+                }
+            })
+
+
+        })
+
+        $('#Discount').keyup(function () {
+
+            var dis = $(this).val();
+            var tota = $('#total').val();
+            var disr = Number(dis) * 100 / Number(tota);
+            var a = disr.toFixed(2);
+            $('#discountpre').val(Number(a))
+
+            var net = Number(tota) - Number(dis);
+            $("#netpay").val(Number(net));
+        })
+
+        $('#paid').keyup(function () {
+            var a = $('#netpay').val();
+            var b = $(this).val();
+            var c = Number(a) - Number(b);
+            $('#dues').val(Number(c));
+        })
+
+        function append1() {
+            var ab = 1;
+            var ab = $('#tbody tr').length;
+            var aqnt = 'aqnt' + ab;
+            var sprice = 'sprice' + ab;
+            var qnt = 'qnt' + ab;
+            var gst = 'gst' + ab;
+            var dis = 'dis' + ab;
+            var tot = 'tot' + ab;
+            var data = '<tr class="bar"><td><button class="btn btn-danger text-center DeleteButton" style="margin-left:20px;font-size:20px;font-weight:bolder;"><i class="fa fa-trash-o"></i></button></td><td><input autocomplete="off" type="text" class="mt-3 mb-3"></td><td><input autocomplete="off" type="text" class="mt-3 mb-3"></td><td><input autocomplete="off" type="text" class="mt-3 mb-3" id="' + aqnt + '" class="inp mt-3 mb-3" onkeyup="fun1()"></td><td><input autocomplete="off" type="text" class="mt-3 mb-3" id="' + sprice + '" onkeyup="cal(' + sprice + ',' + qnt + ',' + gst + ',' + dis + ',' + tot + ')" onkeyup="fun1()"></td><td><input autocomplete="off" type="text" class="mt-3 mb-3" id="' + qnt + '" onkeyup="cal(' + sprice + ',' + qnt + ',' + gst + ',' + dis + ',' + tot + ')" onkeyup="fun1()"></td><td><input autocomplete="off" type="text" class="mt-3 mb-3" id="' + gst + '" onkeyup="cal(' + sprice + ',' + qnt + ',' + gst + ',' + dis + ',' + tot + ')" onkeyup="fun1()"></td><td><input autocomplete="off" type="text" class="mt-3 mb-3" id="' + dis + '" onkeyup="cal(' + sprice + ',' + qnt + ',' + gst + ',' + dis + ',' + tot + ')" onkeyup="fun1()"></td><td><input autocomplete="off" type="text"  readonly id="' + tot + '" class="tot11 mt-3 mb-3"></td></tr>';
+            $('#tbody').append(data);
+
+
+        }
+
+        function cal(sprice, qnt, gst, dis, tot) {
+            var sprice1 = $(sprice).val();
+            var qnt1 = $(qnt).val();
+            var tot1 = sprice1 * qnt1;
+            var gst1 = $(gst).val();
+            var dis1 = $(dis).val();
+            var distot = Number(tot1) * Number(dis1) / 100;
+            var disamt = Number(tot1) - Number(distot)
+            var gstot = Number(disamt) * Number(gst1) / 100;
+            var ttamt = Number(disamt) + Number(gstot);
+            $(tot).val(ttamt);
+            // fun1();	
+            toto();
+
+        }
+
+        $("#mytable").on("click", ".DeleteButton", function () {
+            $(this).closest("tr").remove();
+        });
+
+
+        $('#qnt,#aqnt,#gst,#dis,#gst').keyup(function () {
+
+            var p = $('#sprice').val();
+            var q = $('#qnt').val();
+            var tot1 = Number(q) * Number(p);
+            $('#total').val(tot1);
+        })
+
+
+        function toto() {
+            var tt = document.getElementsByClassName("tot11");
+            sum = 0;
+            for (var i = 0; i < tt.length; i++) {
+                sum += Number(tt[i].value);
+            }
+            $("#total").val(sum);
+        }
+
+    </script>
+</body>
+
+</html>
